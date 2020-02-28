@@ -30,6 +30,9 @@ export default function Header() {
       <LinkDiv>
         <Link to="/characters">Characters</Link>
       </LinkDiv>
+      <LinkDiv>
+        <Link to="/locations">Locations</Link>
+      </LinkDiv>
       </Nav>
     </Heading>
   );

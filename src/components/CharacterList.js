@@ -46,6 +46,7 @@ export default function CharacterList() {
       <h2>Characters</h2>
       <h3>page {page}</h3>
       <PageLink updater={updater} val={1} />
+      <p>Search by name:</p>
       <SearchForm updateSearch={newCharSearch}/>
       </div>
       <div className="character-card-list">
