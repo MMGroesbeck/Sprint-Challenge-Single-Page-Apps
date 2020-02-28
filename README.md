@@ -27,6 +27,8 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
+Client-side routing speeds up transitions between sub-pages on a site/app, since each sub-page doesn't have to be retrieved from the server. This also reduces the number of calls to e.g. an API or other resource.
+
 > Answer:
 
 ## Project Set Up
