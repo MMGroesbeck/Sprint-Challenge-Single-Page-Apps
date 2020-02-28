@@ -33,6 +33,9 @@ export default function Header() {
       <LinkDiv>
         <Link to="/locations">Locations</Link>
       </LinkDiv>
+      <LinkDiv>
+        <Link to="/episodes">Episodes</Link>
+      </LinkDiv>
       </Nav>
     </Heading>
   );
