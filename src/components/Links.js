@@ -4,6 +4,7 @@ import styled from "styled-components";
 const Link = styled.a`
   font-size: 1.2rem;
   color: midnightblue;
+  max-width: 20%;
   background-color: rgba(150, 150, 150, 0.6);
   text-decoration: none;
   border: 1px dotted gray;
