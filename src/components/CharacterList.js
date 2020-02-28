@@ -18,7 +18,7 @@ export default function CharacterList() {
     const fetchData = () => {
       console.log("Page updated to: ", page);
       axios
-        .get(`https://cors-anywhere.herokuapp.com/https://rickandmortyapi.com/api/character/?page=${page}`)
+        .get(`https://rickandmortyapi.com/api/character/?page=${page}`)
         .then(response => {
           updateIncoming(response.data);
         })
@@ -36,7 +36,7 @@ export default function CharacterList() {
   }
 
   function nameIncludes(item, query){
-    return item.includes(query);
+    return item.toLowerCase().includes(query.toLowerCase());
   }
 
   return (
@@ -51,7 +51,7 @@ export default function CharacterList() {
       <div className="character-card-list">
       {incoming.results.filter(item => {
         return nameIncludes(item.name, charSearch);
-      }).map((person, index) => {
+      }).map((person) => {
         return (
           <CharacterCard name={person.name} type={person.type} origin={person.origin} />
         );

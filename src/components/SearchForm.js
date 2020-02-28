@@ -12,7 +12,7 @@ const SearchForm = ({values, touched, errors, status, updateSearch}) => {
     <div>
       <Form>
         <label htmlFor="search">Search:
-          <Field id="name" type="text" name="name" placeholder="Search" />
+          <Field id="searchTerm" type="text" name="searchTerm" placeholder="Search" />
           {touched.searchTerm && errors.searchTerm && (<p className="errors">{errors.searchTerm}</p>)}
         </label>
         <button type="submit">Submit</button>
@@ -31,6 +31,7 @@ const FormikSearchForm = withFormik({
       searchTerm: Yup.string().required("Waiting for search...")
   }),
   handleSubmit(values, {setStatus, resetForm}){
+          console.log(values);
           setStatus(values.searchTerm);
           resetForm();
   }
