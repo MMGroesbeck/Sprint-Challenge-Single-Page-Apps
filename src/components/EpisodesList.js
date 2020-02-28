@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import CharacterCard from "./CharacterCard";
+import EpisodeCard from "./EpisodeCard";
 import axios from "axios";
 import PageLink from "./Links";
 import SearchForm from "./SearchForm";
 
-export default function CharacterList() {
-  // TODO: Add useState to track data from useEffect
+export default function EpisodesList() {
+      // TODO: Add useState to track data from useEffect
   const [page, changePage] = useState(1);
   const [incoming, updateIncoming] = useState({ results: [] });
-  const [charSearch, updateCharSearch] = useState("");
-  const newCharSearch = (query) => {
-    query && updateCharSearch(query);
+  const [epSearch, updateEpSearch] = useState("");
+  const newEpSearch = (query) => {
+    query && updateEpSearch(query);
   }
   useEffect(() => {
     // TODO: Add API Request here - must run in `useEffect`
@@ -18,7 +18,7 @@ export default function CharacterList() {
     const fetchData = () => {
       console.log("Page updated to: ", page);
       axios
-        .get(`https://rickandmortyapi.com/api/character/?page=${page}`)
+        .get(`https://rickandmortyapi.com/api/episode/?page=${page}`)
         .then(response => {
           updateIncoming(response.data);
         })
@@ -35,26 +35,26 @@ export default function CharacterList() {
     }
   }
 
-  function nameIncludes(item, query){
+  function epIncludes(item, query){
     return item.toLowerCase().includes(query.toLowerCase());
   }
 
   return (
-    <section className="character-list">
+    <section className="episode-list">
       <div className="heading">
       {page > 1 ? <PageLink updater={updater} val={-1} /> : <span></span>}
-      <h2>Characters</h2>
+      <h2>Episodes</h2>
       <h3>page {page}</h3>
       <PageLink updater={updater} val={1} />
-      <p>Search by name:</p>
-      <SearchForm updateSearch={newCharSearch}/>
+      <p>Search by episode name:</p>
+      <SearchForm updateSearch={newEpSearch}/>
       </div>
-      <div className="character-card-list">
+      <div className="episode-card-list">
       {incoming.results.filter(item => {
-        return nameIncludes(item.name, charSearch);
-      }).map((person) => {
+        return epIncludes(item.name, epSearch);
+      }).map((ep) => {
         return (
-          <CharacterCard name={person.name} type={person.type} origin={person.origin} />
+          <EpisodeCard name={ep.name} episode={ep.episode} air_date={ep.air_date} />
         );
       })}
       </div>
